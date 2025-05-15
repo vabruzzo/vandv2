@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico" />
+    <title>V AND V</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        overflow-x: hidden;
+      }
+      body {
+        margin: 0;
+        padding: 12px;
+        background-image: url("./static/bg.jpg");
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+        background-attachment: scroll;
+        background-position: center top;
+        background-color: rgb(3, 3, 28);
+        overflow-x: hidden;
+      }
+      .hero-image {
+        display: block;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      section {
+        width: 100%;
+        max-width: 1000px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #999999;
+        border-radius: 8px;
+        margin: 0 auto;
+        margin-bottom: 128px;
+        padding: 80px 60px;
+        box-sizing: border-box;
+      }
+      .animated-border {
+        position: relative;
+        z-index: 1;
+      }
+      p {
+        margin: 3px;
+      }
+      .center {
+        text-align: center;
+      }
+      .title {
+        font-size: 5rem;
+        font-weight: 600;
+        color: rebeccapurple;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+          0 0 30px rgba(255, 255, 255, 0.4);
+        letter-spacing: 3px;
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0;
+        border-radius: 8px;
+        backdrop-filter: blur(3px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        animation: glowPulse 4s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%,
+        100% {
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+            0 0 30px rgba(255, 255, 255, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+            0 0 40px rgba(255, 255, 255, 0.6);
+        }
+      }
+      .animated-border::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 10px;
+        background: linear-gradient(
+          135deg,
+          #ff0080,
+          #ff8000,
+          #80ff00,
+          #00ff80,
+          #0080ff,
+          #8000ff,
+          #ff0080
+        );
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(4px);
+        opacity: 0.3;
+        animation: smoothGlow 12s ease-in-out infinite;
+        will-change: background-position;
+        transform: translateZ(0);
+      }
+      @keyframes smoothGlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .frosted-panel {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        padding: 40px 60px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+      .montserrat,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+      .garamond,
+      p,
+      pre {
+        font-family: "Cormorant Garamond", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+      header {
+        margin-top: 100px;
+        margin-bottom: 80px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 5rem;
+        font-weight: 500;
+        color: rebeccapurple;
+      }
+
+      a {
+        color: rebeccapurple;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin: 0;
+      }
+      p,
+      pre {
+        font-size: 1.75rem;
+      }
+      /* Media query for screens with max width of 1024px */
+      @media screen and (max-width: 1024px) {
+        /* Add your responsive styles here */
+        .frosted-panel {
+          padding: 40px 16px;
+          margin-bottom: 48px;
+        }
+        h1 {
+          font-size: 2.5rem; /* Smaller heading size */
+        }
+        .title {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 1.5rem; /* Smaller subheading size */
+        }
+        p,
+        pre {
+          font-size: 1.25rem; /* Slightly smaller text */
+        }
+        .hero-image {
+          width: 100%; /* Slightly wider image on medium screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="content">
+      <header>
+        <img src="./static/title.png" alt="Virginia and Vincent" class="hero-image"/>
+        <img
+          src="./static/us.png"
+          alt="Virginia and Vincent"
+          class="hero-image"
+        />
+      </header>
+      <section class="frosted-panel">
+        <h2 class="montserrat center">VIRGINIA WAGNER & VINCENT ABRUZZO</h2>
+        <h2 class="montserrat center">WEDDING CELEBRATION</h2>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">Gilbertsville Farmhouse</p>
+          <p class="center">336 Coye Brook Rd, South New Berlin, NY</p>
+          <p class="center">Friday August 15 – Sun August 17</p>
+          <p class="center">Ceremony Saturday August 16 4:30pm</p>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">
+            Music • Swimming • Lawn Games • Farm Animals • Elegant Dining
+          </p>
+          <p class="center">Bonfires • Late Night Dancing • On-Site Glamping</p>
+        </div>
+        <p class="center">CHOOSE YOUR OWN ADVENTURE</p>
+        <p class="center">1. Stay on-site for two days of activities or</p>
+        <p class="center">2. Attend Saturday’s celebration</p>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center"><a href="map" target="_blank">MAP</a></p>
+          <p class="center">Explore the Venue!</p>
+        </div>
+      </section>
+      <section class="frosted-panel animated-border">
+        <h2 class="center">RSVP</h2>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">
+            Please
+            <a
+              href="https://docs.google.com/forms/d/14OP_tXBm9UYpfjvSAHbzz0fOSEdSmnwlqUTb7a1ZDAY/edit"
+              target="_blank"
+              >RSVP HERE</a
+            >
+            by June 15
+          </p>
+        </div>
+      </section>
+      <section class="frosted-panel">
+        <div style="margin-bottom: 20px">
+          <h2 class="montserrat center">ITINERARY</h2>
+          <p class="center">(Stay tuned for more details)</p>
+        </div>
+        <p>FRIDAY</p>
+        <div style="display: flex; margin-bottom: 20px">
+          <div style="width: 20%">
+            <p>11am</p>
+            <p>1pm</p>
+            <p>2-6pm</p>
+            <p>6pm</p>
+            <p>8pm</p>
+          </div>
+          <div>
+            <p>Arrival for On-Site Guests</p>
+            <p>Lunch at the Farmhouse</p>
+            <p>Swimming, Lawn Games, Explore Gilbertsville Farm</p>
+            <p>Welcome Dinner for On-Site Guests in Hayloft</p>
+            <p>Music & Bonfire</p>
+          </div>
+        </div>
+        <p>SATURDAY</p>
+        <div style="display: flex; margin-bottom: 20px">
+          <div style="width: 20%">
+            <p>10am-11:30</p>
+            <p>3:30pm</p>
+            <p>4:30pm</p>
+            <p>5pm</p>
+            <p>6pm</p>
+            <p>10pm-1am</p>
+          </div>
+          <div>
+            <p>Breakfast for On-Site Guests in Hayloft</p>
+            <p>Arrival and Welcome Drink for All Guests in Milking Parlour</p>
+            <p>Ceremony at Hilltop</p>
+            <p>Cocktail Hour in Milking Parlour</p>
+            <p>Dinner & Reception in Chandelier Barn</p>
+            <p>Dancing and Drinks Continues in After-Party Lounge</p>
+          </div>
+        </div>
+        <p>SUNDAY</p>
+        <div style="display: flex; margin-bottom: 20px">
+          <div style="width: 20%">
+            <p>9-11am</p>
+          </div>
+          <div>
+            <p>Bagel Brunch for On-Site Guests at Farmhouse</p>
+          </div>
+        </div>
+      </section>
+      <section class="frosted-panel">
+        <h2 class="montserrat center">DRESS</h2>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">DAYTIME</p>
+          <p class="center">
+            Casual and comfortable for farm exploration and beach lounging.
+          </p>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">WELCOME DINNER</p>
+          <p class="center">
+            Summer Festive: Sun dresses, jeans, slacks - all welcome!
+          </p>
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">WEDDING</p>
+
+          <p class="center">
+            Colorful Formal. Bring out those bright summer hues!
+          </p>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">GENERAL</p>
+          <p class="center">
+            Wear flats or wedges for traversing the farm and grassy ceremony
+            site: no heels.
+          </p>
+          <p class="center">
+            Expect midday heat and bring a layer for the night.
+          </p>
+        </div>
+      </section>
+      <section class="frosted-panel">
+        <h2 class="center">ACCOMMODATIONS</h2>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p>ON-SITE</p>
+          <p style="margin-bottom: 1rem">
+            Gilbertsville Farmhouse has beautiful places to stay – from private
+            A-frame cabins to elevated glamping tents. These are first come,
+            first served via your RSVP. There are more guests than on-site
+            lodging.
+          </p>
+          <p>
+            Each site has a king-sized bed that sleeps two. Stay with a friend,
+            loved one, or solo. The more friends who double up the merrier.
+            (It’s possible to bring a blow-up mattress.) Lodging is $500 per
+            glamping site, which covers 2 nights. Note that one-night stays
+            on-site aren’t possible, but there are off-site options below.
+          </p>
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p>OFF-SITE</p>
+          <p>
+            We’ve reserved rooms for guests at a few hotels and guest houses in
+            the area. Please see
+            <a
+              href="https://docs.google.com/document/d/1ENnh0ry1D3JQb2cyODER7XYpiATakt9IIXC5KqBTikk/edit?tab=t.0"
+              target="_blank"
+              >THIS DOCUMENT</a
+            >
+            for details. Book soon, as there are multiple events in the area
+            that weekend.
+          </p>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p>DIRECTIONS</p>
+          <p>
+            Click for
+            <a
+              href="https://res.cloudinary.com/dubsado/image/upload/v1742833704/kceuhsdg676u7l4v9fp5.pdf"
+              target="_blank"
+              >DIRECTIONS</a
+            >. Syracuse (1 hour 30 min) and Albany (1 hour 50 min) are the two
+            closest airports. NYC is 3.5 hours without traffic.
+          </p>
+        </div>
+      </section>
+
+      <section class="frosted-panel">
+        <h2 class="center">THANK YOU</h2>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">
+            Your love and support mean the world to us as we begin this new
+            chapter.
+          </p>
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">
+            We are not expecting gifts. We realize that many people are renting
+            one or two nights of accommodations and giving the gift of your
+            time.
+          </p>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+          <p class="center">
+            If you’d like to mail a card, we’d love to hear from you. For those
+            who would still like to send something, we will have a small
+            registry (coming soon) for our new home and travel fund.
+          </p>
+          <div style="margin-top: 0.5rem">
+            <p class="center">Virginia Wagner & Vincent Abruzzo</p>
+            <p class="center">19-21 Har Mil Drive</p>
+            <p class="center">Cold Spring NY 10516</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
